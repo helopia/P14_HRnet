@@ -1,12 +1,14 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import {DatePicker} from "@mui/x-date-pickers";
+import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 
 
 const CreateEmployeeForm = () => {
     return (
         <>
             <form action="">
-                <div>
+                <div className="container">
                     <div>
                         <label htmlFor="firstname">
                             First Name
@@ -24,10 +26,11 @@ const CreateEmployeeForm = () => {
                             id="lastname"
                             placeholder="Last Name"
                         />
+
                         <label htmlFor="BirthDate">
                             Date of Birth
                         </label>
-                        <input
+                        <DatePicker label="Date of Birth"
                             type="date"
                             id="birthDate"
                             name="birthDate"
@@ -35,7 +38,7 @@ const CreateEmployeeForm = () => {
                         <label htmlFor="startDate">
                             Start Date
                         </label>
-                        <input
+                        <DatePicker label="Start date"
                             type="date"
                             id="startDate"
                             name="startDate"
@@ -52,7 +55,19 @@ const CreateEmployeeForm = () => {
                             id="street"
                         />
                         <label htmlFor="state">State</label>
-                        {/*<CustomDropdown></CustomDropdown>*/}
+                        <FormControl fullWidth>
+                            <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+
+
+                            >
+                                <MenuItem value={10}>Ten</MenuItem>
+                                <MenuItem value={20}>Twenty</MenuItem>
+                                <MenuItem value={30}>Thirty</MenuItem>
+                            </Select>
+                        </FormControl>
                         <label htmlFor="zipCode">Zip Code</label>
                     </fieldset>
                     <div id="formSave">
