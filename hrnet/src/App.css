@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  font-family: "Montserrat";
+}
+
+/*# sourceMappingURL=App.css.map */

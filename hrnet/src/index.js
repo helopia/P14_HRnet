@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import {createBrowserRouter, createRoutesFromElements, Route, Routes} from "react-router-dom";
+import ErrorPage from "./pages/404";
+import CreateEmployeePage from "./pages/CreateEmployeePage";
+import "./assets/styles/main.scss";
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
