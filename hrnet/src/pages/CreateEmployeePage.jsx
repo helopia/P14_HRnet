@@ -9,9 +9,9 @@ const CreateEmployeePage = () => {
     return (
         <section className="container">
             <h1>Create Employee</h1>
-            {/*<CreateEmployeeForm/>*/}
-            <Test  departments={departments}></Test>
-            <Test2></Test2>
+            <CreateEmployeeForm departments={departments}/>
+            {/*<Test  departments={departments}></Test>*/}
+            {/*<Test2></Test2>*/}
         </section>
     );
 };

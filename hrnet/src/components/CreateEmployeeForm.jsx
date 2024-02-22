@@ -4,7 +4,20 @@ import {DatePicker} from "@mui/x-date-pickers";
 import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { POST_EMPLOYEE } from "../store/actions/constant";
+import {departments} from "../data";
+import OutlinedInput from "@mui/material/OutlinedInput";
 const CreateEmployeeForm = ({statesUsa, departments}) => {
+    const [departmentName, setDepartmentName] = React.useState([]);
+
+    const handleChange = (event) => {
+        const {
+            target: { value },
+        } = event;
+        setDepartmentName(
+            // On autofill we get a stringified value.
+            typeof value === 'string' ? value.split(',') : value,
+        );
+    };
 
     return (
         <>
@@ -46,14 +59,23 @@ const CreateEmployeeForm = ({statesUsa, departments}) => {
                         />
                         <div className="department">
                             <label htmlFor="department">Department</label>
-                            <FormControl sx={{ m: 1, minWidth: 80 }}>
-                                <InputLabel id="demo-simple-select-label"></InputLabel>
+                            <FormControl sx={{ m: 1, width: 300 }}>
+                                <InputLabel id="demo-multiple-name-label">departments</InputLabel>
                                 <Select
-                                    labelId="demo-simple-select-label"
-                                    id="demo-simple-select"
-                                >
-                                    <MenuItem value={10}>Ten</MenuItem>
+                                    labelId="demo-multiple-name-label"
+                                    id="demo-multiple-name"
+                                    multiple
+                                    value={departmentName}
+                                    onChange={handleChange}
+                                    input={<OutlinedInput label="departments" />}
 
+                                >
+                                    {departments.map((department) => (
+                                        <MenuItem key={department.value} value={department.value}>
+                                            {department.label}
+                                        </MenuItem>
+                                    ))}
+                                    ))
                                 </Select>
                             </FormControl>
                         </div>

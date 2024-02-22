@@ -50,14 +50,12 @@ export default function Test() {
                     input={<OutlinedInput label="departments" />}
 
                 >
-                    {departments.map((departments) => (
-                        <MenuItem
-                            key={departments}
-                            value={departments}
-                        >
-                            {departments}
+                    {departments.map((department) => (
+                        <MenuItem key={department.value} value={department.value}>
+                            {department.label}
                         </MenuItem>
                     ))}
+                    ))
                 </Select>
             </FormControl>
         </div>
