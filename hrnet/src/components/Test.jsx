@@ -5,7 +5,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import {departments} from "../data";
+import {departments, statesUSA} from "../data";
 
 
 
@@ -25,13 +25,13 @@ import {departments} from "../data";
 
 
 export default function Test() {
-    const [departmentName, setDepartmentName] = React.useState([]);
+    const [statesUSAName, setStatesUSAName] = React.useState([]);
 
-    const handleChange = (event) => {
+    const handleChangeStateUsa = (event) => {
         const {
             target: { value },
         } = event;
-        setDepartmentName(
+        setStatesUSAName(
             // On autofill we get a stringified value.
             typeof value === 'string' ? value.split(',') : value,
         );
@@ -40,19 +40,19 @@ export default function Test() {
     return (
         <div>
             <FormControl sx={{ m: 1, width: 300 }}>
-                <InputLabel id="demo-multiple-name-label">departments</InputLabel>
+                <InputLabel id="demo-multiple-name-label">State</InputLabel>
                 <Select
                     labelId="demo-multiple-name-label"
                     id="demo-multiple-name"
                     multiple
-                    value={departmentName}
-                    onChange={handleChange}
-                    input={<OutlinedInput label="departments" />}
+                    value={statesUSAName}
+                    onChange={handleChangeStateUsa}
+                    input={<OutlinedInput label="State" />}
 
                 >
-                    {departments.map((department) => (
-                        <MenuItem key={department.value} value={department.value}>
-                            {department.label}
+                    {statesUSA.map((stateUSA) => (
+                        <MenuItem key={stateUSA.state} value={stateUSA.state}>
+                            {stateUSA.state}
                         </MenuItem>
                     ))}
                     ))

@@ -2,15 +2,15 @@ import React from 'react';
 import CreateEmployeeForm from "../components/CreateEmployeeForm";
 import Test from "../components/Test";
 import Test2 from "../components/Test2";
-import {departments, } from "../data";
+import {departments, statesUSA,} from "../data";
 
 
 const CreateEmployeePage = () => {
     return (
         <section className="container">
             <h1>Create Employee</h1>
-            <CreateEmployeeForm departments={departments}/>
-            {/*<Test  departments={departments}></Test>*/}
+            <CreateEmployeeForm departments={departments} statesUSA={statesUSA}/>
+            {/*<Test  statesUSA={statesUSA}></Test>*/}
             {/*<Test2></Test2>*/}
         </section>
     );

@@ -2,18 +2,29 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import {DatePicker} from "@mui/x-date-pickers";
 import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { POST_EMPLOYEE } from "../store/actions/constant";
-import {departments} from "../data";
+import {useDispatch, useSelector} from "react-redux";
+import {POST_EMPLOYEE} from "../store/actions/constant";
+import {departments, statesUSA} from "../data";
 import OutlinedInput from "@mui/material/OutlinedInput";
+
 const CreateEmployeeForm = ({statesUsa, departments}) => {
     const [departmentName, setDepartmentName] = React.useState([]);
+    const [statesUSAName, setStatesUSAName] = React.useState([]);
 
-    const handleChange = (event) => {
+    const handleChangeDepartment = (event) => {
+        const {
+            target: {value},
+        } = event;
+        setDepartmentName(
+            // On autofill we get a stringified value.
+            typeof value === 'string' ? value.split(',') : value,
+        );
+    };
+    const handleChangeStateUsa = (event) => {
         const {
             target: { value },
         } = event;
-        setDepartmentName(
+        setStatesUSAName(
             // On autofill we get a stringified value.
             typeof value === 'string' ? value.split(',') : value,
         );
@@ -45,30 +56,29 @@ const CreateEmployeeForm = ({statesUsa, departments}) => {
                             Date of Birth
                         </label>
                         <DatePicker label="Date of Birth"
-                            type="date"
-                            id="birthDate"
-                            name="birthDate"
+                                    type="date"
+                                    id="birthDate"
+                                    name="birthDate"
                         />
                         <label htmlFor="startDate">
                             Start Date
                         </label>
                         <DatePicker label="Start date"
-                            type="date"
-                            id="startDate"
-                            name="startDate"
+                                    type="date"
+                                    id="startDate"
+                                    name="startDate"
                         />
                         <div className="department">
                             <label htmlFor="department">Department</label>
-                            <FormControl sx={{ m: 1, width: 300 }}>
+                            <FormControl sx={{m: 1, width: 300}}>
                                 <InputLabel id="demo-multiple-name-label">departments</InputLabel>
                                 <Select
                                     labelId="demo-multiple-name-label"
                                     id="demo-multiple-name"
                                     multiple
                                     value={departmentName}
-                                    onChange={handleChange}
-                                    input={<OutlinedInput label="departments" />}
-
+                                    onChange={handleChangeDepartment}
+                                    input={<OutlinedInput label="departments"/>}
                                 >
                                     {departments.map((department) => (
                                         <MenuItem key={department.value} value={department.value}>
@@ -93,15 +103,23 @@ const CreateEmployeeForm = ({statesUsa, departments}) => {
                             id="city"
                         />
                         <label htmlFor="state">State</label>
-                        <FormControl sx={{ m: 1, minWidth: 80 }}>
-                            <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                        <FormControl sx={{ m: 1, width: 300 }}>
+                            <InputLabel id="demo-multiple-name-label">State</InputLabel>
                             <Select
-                                labelId="demo-simple-select-label"
-                                id="demo-simple-select"
+                                labelId="demo-multiple-name-label"
+                                id="demo-multiple-name"
+                                multiple
+                                value={statesUSAName}
+                                onChange={handleChangeStateUsa}
+                                input={<OutlinedInput label="State" />}
+
                             >
-                                <MenuItem value={10}>Ten</MenuItem>
-                                <MenuItem value={20}>Twenty</MenuItem>
-                                <MenuItem value={30}>Thirty</MenuItem>
+                                {statesUSA.map((stateUSA) => (
+                                    <MenuItem key={stateUSA.state} value={stateUSA.state}>
+                                        {stateUSA.state}
+                                    </MenuItem>
+                                ))}
+                                ))
                             </Select>
                         </FormControl>
                         <label htmlFor="zipCode">Zip Code</label>
