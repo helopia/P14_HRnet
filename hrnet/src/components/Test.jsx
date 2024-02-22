@@ -5,21 +5,22 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import {departments} from "../data";
 
 
 
-const departments = [
-    'Oliver Hansen',
-    'Van Henry',
-    'April Tucker',
-    'Ralph Hubbard',
-    'Omar Alexander',
-    'Carlos Abbott',
-    'Miriam Wagner',
-    'Bradley Wilkerson',
-    'Virginia Andrews',
-    'Kelly Snyder',
-];
+// const departments = [
+//     'Oliver Hansen',
+//     'Van Henry',
+//     'April Tucker',
+//     'Ralph Hubbard',
+//     'Omar Alexander',
+//     'Carlos Abbott',
+//     'Miriam Wagner',
+//     'Bradley Wilkerson',
+//     'Virginia Andrews',
+//     'Kelly Snyder',
+// ];
 
 
 
