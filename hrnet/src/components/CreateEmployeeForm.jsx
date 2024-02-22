@@ -2,14 +2,15 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import {DatePicker} from "@mui/x-date-pickers";
 import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { POST_EMPLOYEE } from "../store/actions/constant";
+const CreateEmployeeForm = ({statesUsa, departments}) => {
 
-
-const CreateEmployeeForm = () => {
     return (
         <>
-            <form action="">
+            <form action="" className="createEmployeeForm">
                 <div className="container">
-                    <div>
+                    <div className="container_infos">
                         <label htmlFor="firstname">
                             First Name
                         </label>
@@ -45,6 +46,16 @@ const CreateEmployeeForm = () => {
                         />
                         <div className="department">
                             <label htmlFor="department">Department</label>
+                            <FormControl sx={{ m: 1, minWidth: 80 }}>
+                                <InputLabel id="demo-simple-select-label"></InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                >
+                                    <MenuItem value={10}>Ten</MenuItem>
+
+                                </Select>
+                            </FormControl>
                         </div>
                     </div>
                     <fieldset>
@@ -54,14 +65,17 @@ const CreateEmployeeForm = () => {
                             type="text"
                             id="street"
                         />
+                        <label htmlFor="city">City</label>
+                        <input
+                            type="text"
+                            id="city"
+                        />
                         <label htmlFor="state">State</label>
-                        <FormControl fullWidth>
+                        <FormControl sx={{ m: 1, minWidth: 80 }}>
                             <InputLabel id="demo-simple-select-label">Age</InputLabel>
                             <Select
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
-
-
                             >
                                 <MenuItem value={10}>Ten</MenuItem>
                                 <MenuItem value={20}>Twenty</MenuItem>
@@ -69,6 +83,7 @@ const CreateEmployeeForm = () => {
                             </Select>
                         </FormControl>
                         <label htmlFor="zipCode">Zip Code</label>
+                        <input type="number" id="zipCode"/>
                     </fieldset>
                     <div id="formSave">
                         <input type="submit" value="save"/>
