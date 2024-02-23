@@ -1,7 +1,20 @@
 import data from "../../data/data";
+import DatePickerMui from "../../components/DatePickerMui";
+import {useState} from "react";
+import {Employee} from "../../employeeInit/employeeInit";
 
 const Form = ({}) => {
-
+  const [employee, setEmployee] = useState<Employee>({
+    firstName: "",
+    lastName: "",
+    dateOfBirth: null,
+    startDate: null,
+    street: "",
+    city: "",
+    state: "AL",
+    zipCode: "",
+    department: "Sales",
+  });
 
   return (
     <div className="">
@@ -30,11 +43,22 @@ const Form = ({}) => {
 
         <div className="">
           <label htmlFor="birth">Date of birth</label>
+          <DatePickerMui
+              value={employee.dateOfBirth}
+              onChange={(date) =>
+                  setEmployee((prev) => ({ ...prev, dateOfBirth: date }))
+              }
+          />
 
         </div>
         <div className="">
           <label htmlFor="start">Start Date</label>
-
+          <DatePickerMui
+              value={employee.startDate}
+              onChange={(date) =>
+                  setEmployee((prev) => ({ ...prev, startDate: date }))
+              }
+              />
         </div>
 
         <fieldset className="">
