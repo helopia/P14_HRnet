@@ -7,7 +7,7 @@ import {POST_EMPLOYEE} from "../store/actions/constant";
 import {departments, statesUSA} from "../data";
 import OutlinedInput from "@mui/material/OutlinedInput";
 
-const CreateEmployeeForm = ({statesUsa, departments}) => {
+const CreateEmployeeForm = ({statesUSA, departments}) => {
     const [departmentName, setDepartmentName] = React.useState([]);
     const [statesUSAName, setStatesUSAName] = React.useState([]);
 

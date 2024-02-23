@@ -1,17 +1,11 @@
 import { useSelector } from "react-redux";
+import Test from "../components/Test";
 
 
 function CurrentEmployeePage() {
 
     return (
-        <section className="container">
-            <h1>'Welcome to Employee List Page'</h1>
-            <table>
-                <thead>
-                <tr></tr>
-                </thead>
-            </table>
-        </section>
+        <Test></Test>
     )
 }
 

@@ -61,8 +61,8 @@ export const statesUSA = [
 ];
 
 export const departments = [
-    { "value": "sales", "label": "Sales" },
-    { "value": "engineering", "label": "Engineering" },
-    { "value": "hr", "label": "Human Resources" },
-    { "value": "legal", "label": "Legal" },
+    { value: "sales", label: "Sales" },
+    { value: "engineering", label: "Engineering" },
+    { value: "hr", label: "Human Resources" },
+    { value: "legal", label: "Legal" },
 ];

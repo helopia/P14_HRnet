@@ -10,7 +10,7 @@ const CreateEmployeePage = () => {
         <section className="container">
             <h1>Create Employee</h1>
             <CreateEmployeeForm departments={departments} statesUSA={statesUSA}/>
-            {/*<Test  statesUSA={statesUSA}></Test>*/}
+            {/*<Test></Test>*/}
             {/*<Test2></Test2>*/}
         </section>
     );
