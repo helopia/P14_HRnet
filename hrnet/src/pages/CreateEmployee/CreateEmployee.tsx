@@ -9,7 +9,7 @@ function CreateEmployee() {
         <h1>HRnet</h1>
         <Link to={"/employees"}>View Current Employees</Link>
         <h3>Create Employee</h3>
-        <Form />
+        <Form/>
     </section>
   )
 }

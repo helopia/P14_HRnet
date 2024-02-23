@@ -20,7 +20,7 @@ export const initialState: State = {
     employees: [],
 };
 
-export const EmployeeContext = createContext<{
+export const EmployeeInit = createContext<{
     state: State;
     dispatch: React.Dispatch<any>;
 }>({
@@ -63,8 +63,8 @@ export const EmployeeProvider: React.FC<Props> = ({ children }) => {
     }, []);
 
     return (
-        <EmployeeContext.Provider value={{ state, dispatch }}>
+        <EmployeeInit.Provider value={{ state, dispatch }}>
             {children}
-        </EmployeeContext.Provider>
+        </EmployeeInit.Provider>
     );
 };
