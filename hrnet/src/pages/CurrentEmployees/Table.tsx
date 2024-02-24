@@ -15,7 +15,7 @@ function Table() {
     };
 
     // Filter employee list
-    const employeesArr = useMemo(() => {
+    const employeesArray = useMemo(() => {
         return employees
             .filter(
                 (employee) =>
@@ -53,7 +53,7 @@ function Table() {
             />
             <DataGrid
                 columns={columns}
-                rows={employeesArr}
+                rows={employeesArray}
                 getRowId={(row) => row.id}
                 autoHeight
                 pageSizeOptions={[5, 10, 25, 50, 100]}

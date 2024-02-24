@@ -1,9 +1,15 @@
 import data from "../../data/data";
 import DatePickerMui from "../../components/DatePickerMui";
-import {useState} from "react";
-import {Employee} from "../../employeeInit/employeeInit";
+import {FormEvent, useContext, useState} from "react";
+import {Employee, EmployeeInit} from "../../employeeInit/employeeInit";
 
-const Form = ({}) => {
+
+
+type Props = {
+    onSubmit: (employee: Employee) => void;
+};
+const Form = ({onSubmit}: Props) => {
+    const { state, dispatch } = useContext(EmployeeInit);
     const [employee, setEmployee] = useState<Employee>({
         firstName: "",
         lastName: "",
@@ -15,10 +21,37 @@ const Form = ({}) => {
         zipCode: "",
         department: "Sales",
     });
-
+    const handleChange = (
+        event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    ) => {
+        const { name, value } = event.target;
+        setEmployee((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        onSubmit(employee);
+        dispatch({
+            type: "ADD_EMPLOYEE",
+            payload: employee,
+        });
+        setEmployee({
+            firstName: "",
+            lastName: "",
+            dateOfBirth: null,
+            startDate: null,
+            street: "",
+            city: "",
+            state: "Alabama",
+            zipCode: "",
+            department: "Sales",
+        });
+    };
     return (
         <div className="">
-            <form action="#" id="">
+            <form action="#" id="create-employee" onSubmit={(e) => handleSubmit(e)}>
                 <div className="">
                     <div className="">
                         <label htmlFor="first-name">First Name</label>
@@ -27,6 +60,7 @@ const Form = ({}) => {
                             id="first-name"
                             name="firstName"
                             value={employee.firstName}
+                            onChange={(e) => handleChange(e)}
                             required
                         />
                     </div>
@@ -38,6 +72,7 @@ const Form = ({}) => {
                             id="last-name"
                             name="lastName"
                             value={employee.lastName}
+                            onChange={(e) => handleChange(e)}
                             required
                         />
                     </div>
@@ -74,6 +109,7 @@ const Form = ({}) => {
                                 type="text"
                                 name="street"
                                 value={employee.street}
+                                onChange={(e) => handleChange(e)}
                                 required
                             />
                         </div>
@@ -85,6 +121,7 @@ const Form = ({}) => {
                                 type="text"
                                 name="city"
                                 value={employee.city}
+                                onChange={(e) => handleChange(e)}
                                 required
                             />
                         </div>
@@ -97,7 +134,7 @@ const Form = ({}) => {
                                 id="state"
                                 name="state"
                                 value={employee.state}
-
+                                onChange={(e) => handleChange(e)}
                                 required
                             >
                                 {data.map((state) => (
@@ -115,6 +152,7 @@ const Form = ({}) => {
                                 type="number"
                                 name="zipCode"
                                 value={employee.zipCode}
+                                onChange={(e) => handleChange(e)}
                                 required
                             />
                         </div>
@@ -126,6 +164,7 @@ const Form = ({}) => {
                         name="department"
                         id="department"
                         value={employee.department}
+                        onChange={(e) => handleChange(e)}
                         required
                     >
                         <option>Sales</option>
