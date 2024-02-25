@@ -52,8 +52,8 @@ const Form = ({onSubmit}: Props) => {
     return (
         <div className="">
             <form action="#" id="create-employee" onSubmit={(e) => handleSubmit(e)}>
-                <div className="">
-                    <div className="">
+                <div className="names">
+                    <div className="first-name">
                         <label htmlFor="first-name">First Name</label>
                         <input
                             type="text"
@@ -65,7 +65,7 @@ const Form = ({onSubmit}: Props) => {
                         />
                     </div>
 
-                    <div className="">
+                    <div className="last-name">
                         <label htmlFor="last-name">Last Name</label>
                         <input
                             type="text"
@@ -78,7 +78,7 @@ const Form = ({onSubmit}: Props) => {
                     </div>
                 </div>
 
-                <div className="">
+                <div className="birth-date-datepicker">
                     <label htmlFor="birth">Date of birth</label>
                     <DatePickerMui
                         value={employee.dateOfBirth}
@@ -88,7 +88,7 @@ const Form = ({onSubmit}: Props) => {
                     />
 
                 </div>
-                <div className="">
+                <div className="start-date-datepicker">
                     <label htmlFor="start">Start Date</label>
                     <DatePickerMui
                         value={employee.startDate}
@@ -98,10 +98,10 @@ const Form = ({onSubmit}: Props) => {
                     />
                 </div>
 
-                <fieldset className="">
+                <fieldset className="adress-container">
                     <legend>Address</legend>
 
-                    <div className="">
+                    <div className="street-city-container">
                         <div className="street">
                             <label htmlFor="street">Street</label>
                             <input
@@ -127,7 +127,7 @@ const Form = ({onSubmit}: Props) => {
                         </div>
                     </div>
 
-                    <div className="">
+                    <div className="state-zipcode-container">
                         <div className="state">
                             <label htmlFor="state">State</label>
                             <select
@@ -145,7 +145,7 @@ const Form = ({onSubmit}: Props) => {
                             </select>
                         </div>
 
-                        <div className="">
+                        <div className="zipcode">
                             <label htmlFor="zip-code">Zip Code</label>
                             <input
                                 id="zip-code"
@@ -158,7 +158,7 @@ const Form = ({onSubmit}: Props) => {
                         </div>
                     </div>
                 </fieldset>
-                <div className="">
+                <div className="department">
                     <label htmlFor="department">Department</label>
                     <select
                         name="department"
@@ -174,7 +174,7 @@ const Form = ({onSubmit}: Props) => {
                         <option>Legal</option>
                     </select>
                 </div>
-                <button className="">Save</button>
+                <button className="save-btn">Save</button>
             </form>
         </div>
     );

@@ -48,6 +48,7 @@ function Table() {
             <TextField
                 label="Search"
                 value={searchingEmployee}
+                onChange={handleSearchingEmployee}
                 variant="outlined"
                 margin="normal"
             />

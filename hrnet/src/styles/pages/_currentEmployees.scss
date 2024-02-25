@@ -1,0 +1,19 @@
+.current-employee-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    h1 {
+        padding: 1rem;
+    }
+    .data-grid-container {
+        margin-top: 1rem;
+        background-color: var(--blue);
+        border: 2px solid var(--red);
+        border-radius: 10px;
+    }
+    a {
+        margin-top: 1rem;
+    }
+}
